@@ -26,7 +26,7 @@
 
 - has_many :users
 - has_many :purchase
-- belongs_to :items
+- belongs_to :category
 
 ## purchase テーブル
 
