@@ -17,27 +17,32 @@
 ### Association
 
 - has_many :items
-- has_many :purchase
+- has_many :purchases
 
 ## items テーブル
 
 | Column        | Type    | Options     |
 | ------------- | ------  | ----------- |
 | name          | string  | null: false |
+| info         | string | null: false |
+| category_id         | integer | null: false |
+| sales_status_id         | integer | null: false |
+| shipping_fee_status_id         | integer | null: false |
+| prefecture_id         | integer | null: false |
 | price         | integer | null: false |
+| scheduled_delivery_id         | integer | null: false |
+
 
 
 ### Association
 
-- has_many :users
-- has_many :purchase
-- belongs_to :category
+- belongs_to :user
+- has_one :purchase
 
-## purchase テーブル
+## purchases テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| quantity  | integer | null: false |
 | user   | references | null: false, foreign_key: true |
 | item  | references | null: false, foreign_key: true |
 
@@ -46,13 +51,4 @@
 - belongs_to :item
 - belongs_to :user
 
-## category テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| name    | string     | null false                               |
-| item    | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :item
