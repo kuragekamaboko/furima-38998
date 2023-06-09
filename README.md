@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## users テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| surname               | string | null: false |
+| name_kana               | string | null: false |
+| surname_kana               | string | null: false |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false |
+| year | integer | null: false |
+| month | integer | null: false |
+| date | integer | null: false |
