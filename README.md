@@ -4,15 +4,17 @@
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
 | name               | string | null: false |
-| surname               | string | null: false |
-| name_kana               | string | null: false |
-| surname_kana               | string | null: false |
+| surname            | string | null: false |
+| name_kana          | string | null: false |
+| surname_kana       | string | null: false |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false |
-| year | integer | null: false |
-| month | integer | null: false |
-| date | integer | null: false |
+| birthday           | date   | null: false |
+| items  | references | foreign_key: true |
+| purchases  | references | foreign_key: true |
+
 
 ### Association
 
@@ -23,14 +25,16 @@
 
 | Column        | Type    | Options     |
 | ------------- | ------  | ----------- |
-| name          | string  | null: false |
-| info         | string | null: false |
+| name          | string  | null: false,foreign_key: true|
+| info         | text | null: false |
 | category_id         | integer | null: false |
 | sales_status_id         | integer | null: false |
 | shipping_fee_status_id         | integer | null: false |
 | prefecture_id         | integer | null: false |
 | price         | integer | null: false |
 | scheduled_delivery_id         | integer | null: false |
+| user  | references |null:false, foreign_key: true |
+| purchase  | references | foreign_key: true |
 
 
 
@@ -45,10 +49,23 @@
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | item  | references | null: false, foreign_key: true |
+| shipping_address  | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
+- belongs_to :shipping_address
 
 
+## shipping_addresses テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| postal_code   | string | null: false  |
+| prefecture   | string | null: false  |
+| city   | string | null: false  |
+| addresses   | string | null: false  |
+| building   | string |   |
+| phone_number   | string | null: false  |
+| purchase  | references | null: false, foreign_key: true |
