@@ -33,7 +33,7 @@
 | price         | integer | null: false |
 | scheduled_delivery_id         | integer | null: false |
 | user  | references |null:false, foreign_key: true |
-| purchase  | references | foreign_key: true |
+
 
 
 
@@ -48,7 +48,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| item  | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -67,8 +67,9 @@
 | addresses   | string | null: false  |
 | building   | string |   |
 | phone_number   | string | null: false  |
-| item  | references | null: false, foreign_key: true |
+| purchase   | references | null: false, foreign_key: true |
+
 
 ### Association
 
-- belongs_to :item
+- belongs_to :purchase
