@@ -12,8 +12,7 @@
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false |
 | birthday           | date   | null: false |
-| items  | references | foreign_key: true |
-| purchases  | references | foreign_key: true |
+
 
 
 ### Association
@@ -25,7 +24,7 @@
 
 | Column        | Type    | Options     |
 | ------------- | ------  | ----------- |
-| name          | string  | null: false,foreign_key: true|
+| name          | string  | null: false|
 | info         | text | null: false |
 | category_id         | integer | null: false |
 | sales_status_id         | integer | null: false |
@@ -35,6 +34,7 @@
 | scheduled_delivery_id         | integer | null: false |
 | user  | references |null:false, foreign_key: true |
 | purchase  | references | foreign_key: true |
+| shipping_address  | references | foreign_key: true |
 
 
 
@@ -42,6 +42,7 @@
 
 - belongs_to :user
 - has_one :purchase
+- has_one :shipping_address
 
 ## purchases テーブル
 
@@ -49,13 +50,13 @@
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | item  | references | null: false, foreign_key: true |
-| shipping_address  | references | null: false, foreign_key: true |
+
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- belongs_to :shipping_address
+
 
 
 ## shipping_addresses テーブル
@@ -63,9 +64,12 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | postal_code   | string | null: false  |
-| prefecture   | string | null: false  |
 | city   | string | null: false  |
 | addresses   | string | null: false  |
 | building   | string |   |
 | phone_number   | string | null: false  |
 | purchase  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :item
