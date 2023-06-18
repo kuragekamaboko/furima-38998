@@ -6,14 +6,11 @@ RSpec.describe User, type: :model do
   end
   describe 'ユーザー新規登録' do
     context '新規登録できないとき' do 
-      context 'ニックネーム' do 
         it 'nicknameが空では登録できない' do
           @user.nickname = '';
           @user.valid?
           expect(@user.errors.full_messages).to include("Nickname can't be blank")
         end
-      end
-      context 'メールアドレス' do 
         it 'メールアドレスが空では登録できない' do
           @user.email = ''
           @user.valid?
@@ -30,8 +27,6 @@ RSpec.describe User, type: :model do
           another_user.valid?
           expect(another_user.errors.full_messages).to include('Email has already been taken')
         end
-      end
-      context 'パスワード' do 
         it 'パスワードが空では登録できない' do
           @user.password = ''
           @user.valid?
@@ -63,8 +58,6 @@ RSpec.describe User, type: :model do
           @user.valid?
           expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
         end
-      end
-      context '姓・名(全角)' do 
         it '名（全角）が空だと登録できない' do
           @user.name = ''
           @user.valid?
@@ -85,8 +78,6 @@ RSpec.describe User, type: :model do
           @user.valid?
           expect(@user.errors.full_messages).to include("Surname is invalid")
         end
-      end
-      context '姓・名（カナ）' do
         it '名（カナ）が空では登録できない' do
           @user.name_kana = ''
           @user.valid?
@@ -107,14 +98,11 @@ RSpec.describe User, type: :model do
           @user.valid?
           expect(@user.errors.full_messages).to include("Surname kana is invalid")
         end
-      end
-      context '生年月日' do 
         it '生年月日が空では登録できない' do
           @user.birthday = ''
           @user.valid?
           expect(@user.errors.full_messages).to include("Birthday can't be blank")
         end
-      end
     end
     context '新規登録ができるとき' do
       it '必要な情報が入力されれば登録できる' do
