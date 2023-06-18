@@ -19,4 +19,6 @@ class User < ApplicationRecord
 
   validates :password, format: { with: VALID_PASSWORD_REGEX, allow_blank: true}
 
+  has_many :purchases
+
 end

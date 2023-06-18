@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_17_133728) do
+ActiveRecord::Schema.define(version: 2023_06_17_160542) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2023_06_17_133728) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "users_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_purchases_on_item_id"
+    t.index ["users_id"], name: "index_purchases_on_users_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "name", default: "", null: false
@@ -68,4 +77,6 @@ ActiveRecord::Schema.define(version: 2023_06_17_133728) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
+  add_foreign_key "purchases", "items"
+  add_foreign_key "purchases", "users", column: "users_id"
 end

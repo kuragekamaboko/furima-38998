@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   validates :scheduled_delivery_id, presence: true
 
   belongs_to :user
+  has_one :item
   has_one_attached :image
 
 end
