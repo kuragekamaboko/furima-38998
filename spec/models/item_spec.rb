@@ -66,6 +66,11 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
         end
+        it '販売価格に半角数字以外が含まれている場合は登録できない' do
+          @item.price = '100a0'
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price is not a number")
+        end
         it '商品画像が空では登録できない' do
           @item.image = nil
           @item.valid?
