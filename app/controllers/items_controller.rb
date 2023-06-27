@@ -25,9 +25,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    if @item.purchase
-      redirect_to root_path
-    end
+    # if @item.purchase
+    #   redirect_to root_path
+    # end
   end
 
   def update
