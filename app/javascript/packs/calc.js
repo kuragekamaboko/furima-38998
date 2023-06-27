@@ -3,7 +3,7 @@ window.addEventListener('load',()=>{
   const addTaxPriceElm = document.getElementById('add-tax-price');
   const profitElm = document.getElementById('profit');
   
-  inputPriceElm.addEventListener('change',(event)=>{
+  inputPriceElm.addEventListener('input',(event)=>{
     const taxPrice = Math.floor(event.target.value * 0.1);
     addTaxPriceElm.textContent = taxPrice;
     profitElm.textContent = event.target.value - taxPrice;
