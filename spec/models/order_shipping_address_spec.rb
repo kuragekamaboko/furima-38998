@@ -13,6 +13,10 @@ RSpec.describe OrderShippingAddress, type: :model do
     it "ユーザー情報とtokenとお届け先情報があれば保存ができること" do
       expect(@order_shipping_address).to be_valid
     end
+    it "建物名が空でも保存ができること" do
+      @order_shipping_address.building = nil
+      expect(@order_shipping_address).to be_valid
+    end
   end
 
   context '内容に問題がある場合' do

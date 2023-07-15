@@ -4,6 +4,7 @@ FactoryBot.define do
     postal_code {'123-4567'}
     city {'テスト件'}
     addresses {'テスト市'}
+    building {'テストマンション'}
     phone_number {1234567890}
     prefecture_id {1}
   end
