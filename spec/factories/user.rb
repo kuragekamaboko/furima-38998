@@ -9,5 +9,6 @@ FactoryBot.define do
     name_kana {'テスト'}
     surname_kana {'テスト'}
     birthday {Date.today}
+
   end
 end
