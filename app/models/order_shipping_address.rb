@@ -10,9 +10,10 @@ class OrderShippingAddress
     validates :addresses
     validates :phone_number, format: {with:VALID_INTEGER_REGEX, message: "is invalid. Phone number must be integer and only 10 or 11  digit"}
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
     validates :token
   end
+
+  validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 
 
   def save
