@@ -25,3 +25,54 @@
   height: 30px;
   width: 100px;
 }
+
+.text-success{
+  position: fixed;
+  width: 100%;
+  background-color: chartreuse;
+  text-align: center;
+  color: #fff;
+  padding: 1em 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+  opacity: 0;
+  z-index: 999;
+}
+
+.text-danger{
+  position: fixed;
+  width: 100%;
+  background-color: red;
+  text-align: center;
+  color: #fff;
+  padding: 1em 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+  opacity: 0;
+  z-index: 999;
+}
+
+.fadeInOut {
+  animation-name: fadeInOutAnime;
+  animation-fill-mode:backwards;
+  animation-duration:4s;
+  animation-timing-function:ease;
+  animation-delay: 0.5s;
+  animation-direction:normal;
+  animation-iteration-count:1;
+  }
+  
+  /*1で解説*/
+  @keyframes fadeInOutAnime{
+    0% {
+      opacity: 0;
+    }
+
+    5%{
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
