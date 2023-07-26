@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
   resources :orders, only:[:create,:index]
 
+  resources :mypages, only:[:index]
+  resources :favorites, only:[:create]
 end
