@@ -67,10 +67,20 @@
       </tbody>
     </table>
     <div class="option">
-      <div class="favorite-btn">
+    <%= form_with url:  "/posts", method: :post,id: "form" do |form| %>
+      <%= form.hidden_field :item_id , id: "item-id", value: @item.id %>
+      <button class="favorite-btn" id="favorite-btn">
+        <span id="favorite-text">
+          <% if @favorite %>
+            お気に入り解除
+          <% else %> 
+            お気に入り登録
+          <% end %>
+        </span>
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
+        <span id="favorite-num"><%= @item.favorite.length %></span>
+      </button>
+    <% end %>
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
         <span>不適切な商品の通報</span>

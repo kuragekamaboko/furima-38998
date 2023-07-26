@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :orders
   end
   resources :orders, only:[:create,:index]
+
+  resources :mypages, only:[:index]
+  resources :favorites, only:[:create]
 end

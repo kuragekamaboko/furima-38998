@@ -149,7 +149,7 @@
                 <span><%= item.price %>円<br><%= ShippingFeeStatus.find(item.shipping_fee_status_id).name %></span>
                 <div class='star-btn'>
                   <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
+                  <span class='star-count'><%= item.favorite.length %></span>
                 </div>
               </div>
             </div>
