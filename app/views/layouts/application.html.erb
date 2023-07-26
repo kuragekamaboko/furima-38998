@@ -12,6 +12,16 @@
 </head>
 
 <body>
+  <% if flash[:notice] %>
+  <div class="text-success fadeInOut">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+  <% if flash[:alret] %>
+  <div class="text-danger fadeInOut">
+    <%= flash[:alret] %>
+  </div>
+  <% end %>
   <%= yield %>
 </body>
 

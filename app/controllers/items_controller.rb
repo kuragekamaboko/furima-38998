@@ -21,6 +21,8 @@ class ItemsController < ApplicationController
   end
 
   def show 
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     @favorite = Favorite.find_by(item_id: params[:id],user_id: current_user.id);
   end
 
